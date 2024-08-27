@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-export default function About() {
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
+export default function About(props) {
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
 
   let darkModeStyle = {
     color: "white",
@@ -12,18 +12,19 @@ export default function About() {
     color: "black",
     backgroundColor: "white",
   };
-  const [myStyle, setMyStyle] = useState(darkModeStyle);
 
-  const toggleStyle = () => {
-    if (myStyle.color === 'black') {
-        setMyStyle(darkModeStyle)
-        setBtnText("Enable Light Mode")
-    }
-    else {
-        setMyStyle(lightModeStyle)
-        setBtnText("Enable Dark Mode")
-    }
-  }
+  const myStyle = props.mode === 'light' ? lightModeStyle : darkModeStyle
+
+  // const toggleStyle = () => {
+  //   if (myStyle.color === 'black') {
+  //       setMyStyle(darkModeStyle)
+  //       setBtnText("Enable Light Mode")
+  //   }
+  //   else {
+  //       setMyStyle(lightModeStyle)
+  //       setBtnText("Enable Dark Mode")
+  //   }
+  // }
 
   return (
     <div className="container" style={myStyle}>
@@ -123,9 +124,9 @@ export default function About() {
           </div>
         </div>
       </div>
-      <button type="button" className="btn btn-primary mx-3 my-3" onClick={toggleStyle}>
+      {/* <button type="button" className="btn btn-primary mx-3 my-3" onClick={toggleStyle}>
         {btnText}
-      </button>
+      </button> */}
     </div>
   );
 }
