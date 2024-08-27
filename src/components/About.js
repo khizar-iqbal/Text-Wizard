@@ -6,7 +6,6 @@ export default function About() {
   let darkModeStyle = {
     color: "white",
     backgroundColor: "black",
-    
   };
 
   let lightModeStyle = {
